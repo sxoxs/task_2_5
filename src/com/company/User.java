@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class User {
     private String name;
-    ArrayList<ListTask> lists = new ArrayList<>();
+    private ArrayList<ListTask> lists = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -31,6 +31,7 @@ public class User {
         }
     }
 
-
-
+    public ArrayList<ListTask> getLists() {
+        return lists;
+    }
 }

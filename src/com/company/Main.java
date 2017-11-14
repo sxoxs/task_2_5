@@ -6,15 +6,17 @@ import java.text.ParseException;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
-
+        Menu menu = new Menu();
         User user = new User();
+
         user.setName("Denis");
-
         user.createList("Учеба");
-        user.lists.get(0).addTask();
-        user.lists.get(0).outTask(0);
+//        user.getLists().get(0).addTask();
+//        user.getLists().get(0).outTask(0);
 
-        Notificator notificator = new Notificator();
-        notificator.notifi(user);
+        menu.showMenu(user);
+
+        System.out.println("Работа завершена");
     }
+
 }

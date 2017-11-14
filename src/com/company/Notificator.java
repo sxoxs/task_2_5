@@ -25,10 +25,29 @@ public class Notificator {
 
         SearchActualTask search = new SearchActualTask();
 
-        for (int i = 0; i < user.lists.size(); i++) {
-            if (search.containsActualTask(user.lists.get(i), dateBegin, dateEnd)) {
-                search.outActtualTask(user.lists.get(i), dateBegin, dateEnd);
+        for (int i = 0; i < user.getLists().size(); i++) {
+            if (search.containsActualTask(user.getLists().get(i), dateBegin, dateEnd)) {
+                search.outActtualTask(user.getLists().get(i), dateBegin, dateEnd);
             }
         }
+    }
+    public void notifi(ListTask list) throws IOException, ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("hh.mm dd.MM.yyyy");
+        Date dateBegin;
+        Date dateEnd;
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Введите начало временного отрезка (дд.мм.гггг)");
+        dateBegin = sdf.parse("00.00 " +br.readLine());
+
+        System.out.println("Введите конец временного отрезка (дд.мм.гггг)");
+        dateEnd = sdf.parse("23.59 " + br.readLine());
+
+        SearchActualTask search = new SearchActualTask();
+
+        if (search.containsActualTask(list, dateBegin, dateEnd)) {
+            search.outActtualTask(list, dateBegin, dateEnd);
+        }
+
     }
 }
