@@ -15,7 +15,6 @@ public class Main {
 //        user.getLists().get(0).outTask(0);
 
         menu.showMenu(user);
-
         System.out.println("Работа завершена");
     }
 
